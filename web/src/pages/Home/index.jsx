@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles.css';
 
 import { Card } from '../../components/Card'
@@ -7,6 +7,7 @@ export function Home() {
 
   const [fullName, setFullName] = useState('');
   const [attendanceRegister, setAttendanceRegister] = useState([]);
+  const [meetingModerator, setMeetingModerator] = useState({name:'', avatar:''})
 
   function handleAddRegister() {
     const newRegister = {
@@ -22,9 +23,30 @@ export function Home() {
 
   }
 
+  useEffect(() => {
+
+    async function fetchGithubAPIData() {
+      const resp = await fetch('https://api.github.com/users/janaina-mj')
+      const data = await resp.json();
+      setMeetingModerator({
+        name: data.name,
+        avatar: data.avatar_url,
+      })
+    }
+    
+    fetchGithubAPIData();
+    
+  }, []);
+
   return (
     <div className="container">
-       <h1>Attendance Register</h1>
+      <header>
+        <h1>Attendance Register</h1>
+        <div>
+          <strong> { meetingModerator.name }</strong>
+          <img src={ meetingModerator.avatar } alt="Profile picture" />
+        </div>
+      </header>
 
        <input 
        type="text" 
