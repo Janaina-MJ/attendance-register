@@ -11,6 +11,13 @@ This is a basic front-end project, made to improve skills with css, JavaScript a
   - CSS to build designs
   - HTML
   
+## 👀 Check it Out:
+
+
+https://attendance-register.vercel.app
+
+<img width="800" alt="Screenshot 2022-07-14 at 15 23 24" src="https://user-images.githubusercontent.com/78409024/179005633-2c0ad673-4098-4c70-b999-dd149cfe0955.png">
+
 ## Getting Started
 
 To clone and run this application, you'll need [Git](https://git-scm.com/) + [NPM](https://www.w3schools.com/whatis/whatis_npm.asp) installed on your computer.
