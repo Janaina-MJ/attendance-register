@@ -13,3 +13,18 @@
     border-radius: 10px;
     margin-bottom: 14px;
 }
+
+/* Responsive-mode for medium devices: */
+@media(min-width: 640px) and (max-width: 991px) {
+    .card {
+        height: 30px;
+    }
+}
+/* Responsive-mode for mobile devices: */
+
+@media(max-width: 639px) {
+    .card {
+        width: 90%;
+        padding: 14px;
+    }
+}

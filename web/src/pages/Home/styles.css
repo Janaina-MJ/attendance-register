@@ -57,3 +57,34 @@
 .container button:hover {
     filter: brightness(0.9);
 }
+
+/* Responsive-mode for medium devices: */
+@media(min-width: 640px) and (max-width: 991px) {
+
+   
+
+    .container input {
+        padding: 12px;
+    }
+
+    .container button {
+        padding: 12px;
+    }
+}
+/* Responsive-mode for mobile devices: */
+
+@media(max-width: 639px) {
+    .container header {
+        width: 80%;
+    }
+
+    .container input {
+        width: 90%;
+        padding: 12px;
+    }
+
+    .container button {
+        width: 90%;
+        padding: 12px;
+    }
+}
