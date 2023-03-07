@@ -14,6 +14,18 @@
     margin-bottom: 14px;
 }
 
+.time {
+    justify-self: flex-end;
+}
+
+.name-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
 /* Responsive-mode for medium devices: */
 @media(min-width: 640px) and (max-width: 991px) {
     .card {

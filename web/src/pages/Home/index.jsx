@@ -8,10 +8,14 @@ export function Home() {
   const [fullName, setFullName] = useState('');
   const [attendanceRegister, setAttendanceRegister] = useState([]);
   const [meetingModerator, setMeetingModerator] = useState({name:'', avatar:''})
+  const [counter, setCounter] = useState(1);
 
   function handleAddRegister() {
+
+    setCounter(counter+1);
     const newRegister = {
       name: fullName,
+      number: counter,
       time: new Date().toLocaleTimeString("en-uk", {
         hour: '2-digit',
         minute: '2-digit',
@@ -62,6 +66,7 @@ export function Home() {
             key={register.time}
             name={ register.name } 
             time={ register.time}
+            number={ register.number}
           />
         ))
       }
