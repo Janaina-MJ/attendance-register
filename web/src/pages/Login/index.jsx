@@ -19,7 +19,7 @@ export function Login() {
     }
 
     return (
-        <div>
+        <div className='login-container'>
             <h1>Attendance Register</h1>
             <form className='form' onSubmit={createRegister}>
                 <div className='field-set'>
@@ -29,20 +29,20 @@ export function Login() {
                         type="text" 
                         id='event-name' 
                         name='name' 
-                        placeholder='Enter the event name for which the attendance is being recorded' 
+                        placeholder='Enter event name for attendance recording' 
                         onChange={(e)=> setName(e.target.value)}
                         value={name}
                         required />
                 </div>
 
                 <div className='field-set'>
-                    <label htmlFor="email" className='field-title'>Email</label>
+                    <label htmlFor="email" className='field-title'>Email:</label>
                     <input 
                         className='fields' 
                         type="email" 
                         id='email' 
                         name='email' 
-                        placeholder='Enter the email address of the person who will receive the list of attendees' 
+                        placeholder="Enter recipient's email address for attendee list" 
                         onChange={(e)=> setEmail(e.target.value)}
                         value={email}
                         required />
@@ -53,7 +53,7 @@ export function Login() {
                 </div>
 
                 <div className='field-set'>
-                    <button className='submit-form-button' type='submit'>Create new attendance register</button>
+                    <button className='submit-form-button' type='submit'>Create</button>
                 </div>
 
             </form>
