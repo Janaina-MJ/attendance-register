@@ -1,6 +1,7 @@
 import React from 'react';
 import './styles.css';
 import { useState } from 'react';
+import { api } from '../../service/api'
 
 export function Login() {
 
