@@ -1,11 +1,23 @@
-const express = require('express');
+import express from 'express';
+import { prisma } from './prisma.js';
 
 const app = express();
-const nodemon = require('nodemon');
 
+app.use(express.json());
 
-app.get('/', (req, res)=> {
-    return res.send('hello world')
+app.post('/registers', async (req, res)=> {
+    const today = new Date();
+    const date = `${today.getDate()}/${today.getMonth() + 1}/${today.getFullYear()}`;
+
+    const register = await prisma.register.create({
+        data: {
+           "eventName": req.body.name,
+            "email": req.body.email,
+            "date": date,
+        }
+    })
+
+    return res.status(201).json({ data: register });
 })
 
 
