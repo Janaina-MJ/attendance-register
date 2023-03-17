@@ -1,9 +1,13 @@
 import express from 'express';
 import { prisma } from './prisma.js';
+import cors from 'cors';
 
 const app = express();
 
 app.use(express.json());
+
+// Allow requests from any origin and headers
+app.use(cors());
 
 app.post('/registers', async (req, res)=> {
     const today = new Date();
