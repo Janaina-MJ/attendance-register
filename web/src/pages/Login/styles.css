@@ -30,6 +30,7 @@
 
 .field-title {
     font-weight: bold;
+    font-size: 1.2rem;
     color: rgb(73, 68, 68);
 }
 
@@ -38,7 +39,7 @@
     font-size: 0.8rem;
     border-radius: 7px;
     border: none;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .submit-form-button {
@@ -52,5 +53,49 @@
 }
 
 .submit-form-button:hover {
-    filter: brightness(0.9);
+    filter: brightness(0.7);
+}
+
+.event-logo-container {
+    padding: 10px;
+}
+
+.input-file {
+    display: none;
+}
+
+.input-file-container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 15px;
+}
+
+.logo-option {
+    width: 80px;
+    height: 80px;
+    border: 1px solid rgb(73, 68, 68);
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+.input-label {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 80px;
+    height: 80px;
+    background-color: rgb(228, 228, 228);
+    border: 2px dashed rgb(73, 68, 68);
+    margin-right: 7px;
+    cursor: pointer;
+}
+
+.eventLogo1 {
+    background: no-repeat center/100% url("../../assets/eventLogo1.png");
+    opacity: 0.8;
+}
+
+.eventLogo2 {
+    background: no-repeat center/100% url("../../assets/eventLogo2.jpeg");
+    opacity: 0.7;
 }

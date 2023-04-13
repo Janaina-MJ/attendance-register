@@ -3,20 +3,38 @@ import './styles.css';
 import { useState } from 'react';
 import { api } from '../../service/api'
 
+
 export function Login() {
 
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [imageUrl, setImageUrl] = useState('');
+    const [isLogoSelected, setIsLogoSelected] = useState(false);
+
+    function handleFileSelect(e) {
+        const image = e.target.files[0];
+        setSelectedFile(image);
+
+        const imageURL = URL.createObjectURL(image);
+        setImageUrl(imageURL);
+
+        //then display the selected image
+    } 
+
+    function displayEventLogo() {
+        //display the selected image
+    }
 
     async function createRegister(e) {
         e.preventDefault();
 
-        await api.post('/registers', { //this function is not working yet because the project doesn't has the backend server
+        await api.post('/registers', {
             name,
             email,
+            //selectedFile,
         });
 
-        window.location.href = '../Home/index.js';
     }
 
     return (
@@ -50,7 +68,23 @@ export function Login() {
                 </div>
 
                 <div className='field-set'>
+                    <p className='field-title'>Select the event logo:</p>
+                    <div className='input-file-container'>
+                        <button onClick={displayEventLogo} className='logo-option eventLogo2'></button>
+                        <button onClick={displayEventLogo} className='logo-option eventLogo1'></button>
+                        <label htmlFor="imageUpload" className='input-label'>Choose File</label>
+                        <input 
+                            className='input-file'
+                            type="file" 
+                            id="imageUpload" 
+                            name="imageUpload" 
+                            accept="image/*"
+                            onChange={handleFileSelect} />
+                        
+                    </div>
                     
+                   
+                        
                 </div>
 
                 <div className='field-set'>
