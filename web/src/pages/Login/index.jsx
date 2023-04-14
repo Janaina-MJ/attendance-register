@@ -2,6 +2,8 @@ import React from 'react';
 import './styles.css';
 import { useState } from 'react';
 import { api } from '../../service/api'
+import eventLogo1 from '../../assets/eventLogo1.png'
+import eventLogo2 from '../../assets/eventLogo2.jpeg'
 
 
 export function Login() {
@@ -9,7 +11,7 @@ export function Login() {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [selectedFile, setSelectedFile] = useState(null);
-    const [imageUrl, setImageUrl] = useState('');
+    const [imageUrl, setImageUrl] = useState(null);
     const [isLogoSelected, setIsLogoSelected] = useState(false);
 
     function handleFileSelect(e) {
@@ -69,9 +71,9 @@ export function Login() {
 
                 <div className='field-set'>
                     <p className='field-title'>Select the event logo:</p>
-                    <div className='input-file-container'>
-                        <button onClick={displayEventLogo} className='logo-option eventLogo2'></button>
-                        <button onClick={displayEventLogo} className='logo-option eventLogo1'></button>
+                    <div className={imageUrl? 'display-none' : 'input-file-container' }>
+                        <button onClick={()=> {setImageUrl(eventLogo1)}} className='logo-option eventLogo1' ></button>
+                        <button onClick={()=> {setImageUrl(eventLogo2)}} className='logo-option eventLogo2'></button>
                         <label htmlFor="imageUpload" className='input-label'>Choose File</label>
                         <input 
                             className='input-file'
@@ -80,13 +82,13 @@ export function Login() {
                             name="imageUpload" 
                             accept="image/*"
                             onChange={handleFileSelect} />
-                        
                     </div>
-                    
-                   
-                        
+                    <div className={imageUrl? 'logo-selected' : 'display-none'}>
+                        <button onClick={()=>{setImageUrl(null)}} type='button' className='delete-img-button'>x</button>
+                        <img src={imageUrl} alt="" />
+                    </div>
                 </div>
-
+                
                 <div className='field-set'>
                     <button className='submit-form-button' type='submit'>Create</button>
                 </div>
